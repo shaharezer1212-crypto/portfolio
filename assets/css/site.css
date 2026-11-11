@@ -93,6 +93,7 @@ img { display: block; max-width: 100%; }
   display: flex;
   gap: 6px;
   margin: 0;
+  margin-inline-start: auto;
   padding: 0;
   list-style: none;
 }
