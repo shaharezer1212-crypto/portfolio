@@ -1,0 +1,259 @@
+/* פתיח: שלושה מסכי לומדה קלאסית, שיבוש, ומעבר לאתר */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: #c9d3de;
+  font-family: Arial, "Arial Hebrew", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #1f2d3d;
+  overflow: hidden;
+}
+.intro[hidden] { display: none; }
+
+.intro__skip {
+  position: absolute;
+  inset-inline-end: 16px;
+  bottom: 14px;
+  z-index: 5;
+  padding: 6px 12px;
+  border: 0;
+  background: none;
+  color: #1f2d3d;
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* הנגן: 960×600, מוקטן לפי המסך */
+.player {
+  width: 960px;
+  height: 600px;
+  flex: none;
+  display: grid;
+  /* ב־RTL העמודה הראשונה מימין: התפריט מימין, הבמה משמאל */
+  grid-template: 44px 1fr 52px / 210px 1fr;
+  direction: rtl;
+  background: #fff;
+  border: 1px solid #7d8da0;
+  box-shadow: 0 12px 40px rgba(20, 40, 70, 0.28);
+  transform: scale(var(--fit, 1));
+  transform-origin: center;
+}
+
+.player__top {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: linear-gradient(#2f6fb3, #1f5a9b);
+  color: #fff;
+  font-size: 15px;
+}
+.player__top b { font-size: 16px; }
+
+.player__menu {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  padding: 12px 0;
+  list-style: none;
+  background: #eef2f6;
+  border-inline-end: 1px solid #c3cdd8;
+  font-size: 13.5px;
+}
+.player__menu li { padding: 7px 14px; color: #5a6b7d; }
+.player__menu li.is-on { background: #d6e4f3; color: #1f5a9b; font-weight: 700; }
+.player__menu li.is-done::after { content: " ✓"; }
+
+.player__stage {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 34px 44px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s;
+}
+.slide.is-on { opacity: 1; visibility: visible; }
+.slide h2 { margin: 0 0 6px; color: #1f5a9b; font-size: 30px; }
+.slide .sub { margin: 0 0 22px; color: #5a6b7d; }
+.slide ul { margin: 0; padding-inline-start: 22px; }
+.slide li { margin-bottom: 9px; }
+
+.slide__box { padding: 16px 20px; background: #f3f7fb; border: 1px solid #c3cdd8; border-radius: 6px; }
+.slide__box h3 { margin: 0 0 10px; font-size: 17px; }
+
+.topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+.topics button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 230px;
+  padding: 14px;
+  background: linear-gradient(#f9fbfd, #e3ebf3);
+  border: 1px solid #a9b8c8;
+  border-radius: 8px;
+  color: #1f5a9b;
+  font: inherit;
+  font-weight: 700;
+  font-size: 19px;
+  cursor: pointer;
+}
+.topics button::before { content: attr(data-icon); font-size: 54px; line-height: 1; }
+.topics button small { color: #5a6b7d; font-weight: 400; font-size: 13px; }
+.topics button:hover,
+.topics button.is-picked { background: #d6e4f3; border-color: #1f5a9b; }
+.hint { margin-top: 22px; color: #5a6b7d; font-size: 14px; }
+
+.verdict { margin: 40px 0 14px; font-size: 44px; font-weight: 700; }
+.verdict.is-right { color: #2e8b57; }
+.verdict.is-wrong { color: #c0392b; }
+.feedback { max-width: 30em; margin: 0; font-size: 21px; }
+
+.quiz { margin: 0; padding: 0; list-style: none; }
+.quiz li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 11px 14px;
+  border: 1px solid #c3cdd8;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.quiz li::before { content: ""; flex: none; width: 15px; height: 15px; border: 2px solid #7d8da0; border-radius: 50%; }
+.quiz li:hover,
+.quiz li.is-picked { background: #d6e4f3; border-color: #1f5a9b; }
+
+.player__bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  background: #e6ebf1;
+  border-top: 1px solid #c3cdd8;
+  font-size: 13.5px;
+}
+.player__track { flex: 1; height: 6px; background: #c3cdd8; border-radius: 3px; overflow: hidden; }
+.player__track i { display: block; width: 4%; height: 100%; background: #2f6fb3; transition: width 0.4s; }
+.player__btn {
+  padding: 7px 18px;
+  border: 1px solid #1f5a9b;
+  border-radius: 4px;
+  background: linear-gradient(#3b7cc2, #1f5a9b);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.player__btn[disabled] { opacity: 0.45; cursor: default; }
+
+/* ---------- השיבוש ---------- */
+
+.intro.is-glitch { background: #111; transition: background 0.5s steps(3); }
+.intro.is-glitch .intro__skip { color: #fff; }
+.intro.is-glitch .player {
+  filter: grayscale(1) contrast(1.9);
+  animation: tear 0.22s steps(2) infinite;
+}
+@keyframes tear {
+  0%   { clip-path: inset(0 0 0 0); translate: 0 0; }
+  20%  { clip-path: inset(12% 0 58% 0); translate: -14px 0; }
+  40%  { clip-path: inset(46% 0 22% 0); translate: 18px 3px; }
+  60%  { clip-path: inset(0 0 0 0); translate: -4px -2px; }
+  80%  { clip-path: inset(70% 0 4% 0); translate: 22px 0; }
+  100% { clip-path: inset(0 0 0 0); translate: 6px 2px; }
+}
+
+.intro__noise {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0 2px, transparent 2px 5px),
+    url("../img/grain.svg") 0 0 / 260px 260px;
+  mix-blend-mode: multiply;
+}
+.intro.is-glitch .intro__noise { opacity: 0.45; animation: jitter 0.12s steps(2) infinite; }
+@keyframes jitter { 50% { background-position: 0 3px, 40px 70px; } }
+
+/* הנגן נופל, הדף מתנקה */
+.intro.is-break { background: #fff; transition: background 0.12s; }
+.intro.is-break .intro__noise { opacity: 0; }
+.intro.is-break .intro__skip { display: none; }
+.intro.is-break .player {
+  filter: grayscale(1) contrast(1.9);
+  animation: drop 0.75s cubic-bezier(0.6, 0, 0.9, 0.4) forwards;
+}
+@keyframes drop {
+  to { transform: scale(var(--fit, 1)) translateY(130vh) rotate(-14deg); }
+}
+
+.breakout {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  background: #111;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.breakout img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.breakout p {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  margin: 0 0 6vh;
+  padding: 0.12em 0.22em 0.02em;
+  border: 2px solid #111;
+  background: #fff;
+  color: #111;
+  font-family: "Poalim", Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 7.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  rotate: -3deg;
+}
+.intro.is-break .breakout { animation: breakout 2.1s linear forwards; }
+.intro.is-break .breakout img { animation: zoom 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.intro.is-break .breakout p { animation: pow 0.45s cubic-bezier(0.2, 1.5, 0.4, 1) 0.45s both; }
+@keyframes zoom {
+  from { scale: 1.35; }
+  to   { scale: 1; }
+}
+@keyframes breakout {
+  0%   { opacity: 0; }
+  8%   { opacity: 1; }
+  86%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes pow {
+  from { scale: 0.3; opacity: 0; }
+  to   { scale: 1; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro.is-glitch .player,
+  .intro.is-glitch .intro__noise { animation: none; }
+}

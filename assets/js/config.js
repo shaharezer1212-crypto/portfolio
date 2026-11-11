@@ -1,0 +1,43 @@
+// הגדרות האתר. שדה ריק = הקישור לא מוצג.
+window.SITE = {
+  linkedinUrl: "https://www.linkedin.com/in/shahar-ezer-1466a0232/",
+  email: "Shaharezer1212@gmail.com",
+  phone: "052-6641422",
+  intro: true // false מבטל את פתיח הלומדה
+};
+
+// הפרויקטים. title: שם הלקוח ושם הפרויקט, בלי תגיות ובלי שנים.
+// images: התמונה הראשונה גדולה, השאר בשורה קטנה מתחתיה. רשימה ריקה = ממלא מקום.
+// award: שורת פרס (לא חובה). stats: מספרים בולטים (לא חובה).
+window.PROJECTS = [
+  {
+    title: "ZIM - DARE TO AI",
+    award: "פרויקט זוכה פרס",
+    text: "במשך 14 חודשים השימוש ב־Copilot בצים עמד במקום. Dare to AI נועדה לשנות את זה אצל 5,000 עובדים ב־35 מדינות: סרטון השקה, מרכז AI פנימי, ושלוש לומדות שפיתחתי על כתיבת פרומפטים, שימוש אחראי ב־AI וסוכני AI. בסוף התוכנית שיעור האימוץ של Copilot הגיע ל־88%, לפי נתוני מיקרוסופט.",
+    stats: [
+      { num: "5,000", label: "עובדים" },
+      { num: "10,400", label: "הרשמות ללומדות" },
+      { num: "88%", label: "אימוץ של Copilot" }
+    ],
+    images: ["assets/img/projects/zim-1.webp", "assets/img/projects/zim-2.webp", "assets/img/projects/zim-3.webp", "assets/img/projects/zim-4.webp"],
+    url: ""
+  },
+  {
+    title: "מכבי - אונבורדינג למנהלים חדשים",
+    text: "כניסה לתפקיד ניהולי במכבי היא תהליך טובעני. במקום להוסיף עוד עומס, הפקנו סדרה של 12 סרטונים קצרים עם אנשי מפתח בארגון, על אסטרטגיה, כלכלת בריאות, משאבי אנוש, מדידה, חוויית המטופל ועוד. סרטונים שאפשר גם רק להאזין להם, בדרכים ובין לבין, ובכך לצלוח את התהליך המקדים לכניסה לתפקיד.",
+    images: ["assets/img/projects/maccabi-1.webp", "assets/img/projects/maccabi-2.webp", "assets/img/projects/maccabi-3.webp", "assets/img/projects/maccabi-4.webp"],
+    url: ""
+  },
+  {
+    title: "AppsFlyer - סרטון AI",
+    text: "סרטון שנועד לרתום את העובדים לשינוי במודל העבודה עם AI, מהלך שהיה יכול לעורר הרבה התנגדות. העבודה שלי כללה הכול, מכתיבת התסריט ועד הפקת הסרטון במלואו. בחרנו לא להכריז על שינוי אלא להמליץ על דרך עבודה, והוספנו הרבה הומור, כדי להקליל את התהליך וגם להסביר מה עומד מאחורי הבחירה.",
+    images: ["assets/img/projects/appsflyer-1.webp", "assets/img/projects/appsflyer-2.webp", "assets/img/projects/appsflyer-3.webp", "assets/img/projects/appsflyer-4.webp", "assets/img/projects/appsflyer-5.webp", "assets/img/projects/appsflyer-6.webp", "assets/img/projects/appsflyer-7.webp"],
+    url: ""
+  },
+  {
+    title: "monday - משחק קלפים דיגיטלי",
+    text: "כלי למנהלים שמשתלב בתהליך המשובים. לחברה היה משחק קלפים מודפס, והמרנו אותו לגרסה דיגיטלית: הוספנו קלפים, חשבנו מחדש על הממשק, ושמרנו על גרסה פשוטה ואינטואיטיבית שכל מטרתה לפתוח שיחה.",
+    images: ["assets/img/projects/monday-1.webp", "assets/img/projects/monday-2.webp", "assets/img/projects/monday-3.webp", "assets/img/projects/monday-4.webp"],
+    url: ""
+  }
+];

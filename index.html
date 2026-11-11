@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>שחר עזר | מפתח למידה</title>
+  <meta name="description" content="תיק העבודות של שחר עזר, מפתח למידה שהופך תהליכי למידה לקונספטים שרוצים להישאר בהם.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="assets/fonts/Poalim-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/intro.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+
+  <div class="intro" id="intro" hidden role="dialog" aria-label="פתיח">
+    <div class="player">
+      <div class="player__top"><b>הלומדה השנתית</b><span>חובה | משך משוער: 45 דקות</span></div>
+      <ul class="player__menu">
+        <li>1. בחירת נושא</li>
+        <li>2. שאלה</li>
+        <li>3. משוב</li>
+        <li>4. נהלים, חלק א'</li>
+        <li>5. נהלים, חלק ב'</li>
+        <li>6. נהלים, חלק ג'</li>
+        <li>7. סיכום ביניים</li>
+        <li>8. מבחן מסכם</li>
+      </ul>
+      <div class="player__stage">
+        <section class="slide">
+          <h2>ברוכים הבאים ללומדה השנתית!</h2>
+          <p class="sub">בחרו נושא. (כולם חובה, אבל נחמד לבחור.)</p>
+          <div class="topics" data-topics></div>
+        </section>
+        <section class="slide">
+          <h2 data-q-title></h2>
+          <p class="sub">שאלה 1 מתוך 20. בחרו את התשובה הנכונה ביותר.</p>
+          <ul class="quiz" data-quiz></ul>
+        </section>
+        <section class="slide">
+          <div class="verdict" data-verdict></div>
+          <p class="feedback" data-feedback></p>
+          <p class="hint">נותרו עוד 21 שקפים, מבחן מסכם ותעודה להדפסה.</p>
+        </section>
+      </div>
+      <div class="player__bar">
+        <button class="player__btn" type="button" disabled>הקודם</button>
+        <span data-counter>שקף 1 מתוך 24</span>
+        <div class="player__track"><i></i></div>
+        <button class="player__btn" type="button" disabled>הבא</button>
+      </div>
+    </div>
+    <div class="intro__noise" aria-hidden="true"></div>
+    <div class="breakout" aria-hidden="true">
+      <img src="assets/img/shahar-burst.webp" alt="">
+      <p>לא עוד לומדה.</p>
+    </div>
+    <button class="intro__skip" type="button" data-skip>דילוג</button>
+  </div>
+
+  <header class="nav">
+    <a class="nav__logo" href="index.html">שחר עזר</a>
+    <ul class="nav__links">
+      <li><a class="chip" href="index.html" aria-current="page"><span>פרויקטים</span><span aria-hidden="true">פרויקטים</span></a></li>
+      <li><a class="chip" href="about.html"><span>מי אני</span><span aria-hidden="true">מי אני</span></a></li>
+      <li><a class="chip" href="contact.html"><span>יצירת קשר</span><span aria-hidden="true">יצירת קשר</span></a></li>
+    </ul>
+  </header>
+
+  <main id="main">
+    <section class="block scene">
+      <h1 class="display">
+        <span class="row row--in2" style="--i:0"><span>שחר עזר</span></span>
+        <span class="row display__sub" style="--i:1"><span>מומחה ביצירת</span></span>
+        <span class="row display__sub row--in" style="--i:2"><span>חוויית למידה</span></span>
+      </h1>
+      <div class="scene__stage scene__stage--low">
+        <figure class="panel panel--b" data-drift style="--w:33vw; --wm:70vw; --drift:7; margin-top:12vw;"><span class="panel__frame"><img src="assets/img/shahar-point.webp" alt="איור: שחר מצביע אל המצלמה"></span></figure>
+        <figure class="panel" data-drift style="--w:50vw; --wm:92vw; --drift:3;"><span class="panel__frame"><img src="assets/img/shahar-tear.webp" alt="איור: שחר קורע שקף של לומדה לשניים"></span></figure>
+        <div class="note note--top">
+          <p>נעים מאוד. אני שחר עזר.</p>
+          <p>המומחיות שלי היא לקחת תהליך למידה ולהפוך אותו לתוצר למידה, לא עוד לומדה או מצגת, שגורם ללומדים לרצות לשבת על הכיסא ובאמת ללמוד.</p>
+          <p>זה אולי נשמע קצת יומרני, אבל זה באמת מצליח לי.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block projects" id="projects">
+      <div class="projects__head">
+        <h2>פרויקטים</h2>
+      </div>
+      <div data-projects></div>
+    </section>
+  </main>
+  <section class="finale finale--reveal" id="contact">
+    <p class="finale__word" aria-hidden="true">נדבר?</p>
+    <div class="finale__stage">
+      <img src="assets/img/shahar-rocket.webp" alt="איור: שחר רוכב על טיל ומסמן וי באצבעות">
+      <div class="stamp">
+        <a data-link="email" href="#"></a>
+        <a data-link="phone" href="#" dir="ltr"></a>
+      </div>
+    </div>
+    <div class="finale__links">
+      <a class="chip" data-link="linkedinUrl" href="#" target="_blank" rel="noopener"><span>לינקדאין</span><span aria-hidden="true">לינקדאין</span></a>
+    </div>
+  </section>
+
+
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/intro.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
