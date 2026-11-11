@@ -36,7 +36,7 @@ window.PROJECTS = [
   },
   {
     title: "AppsFlyer - סרטון AI",
-    text: "סרטון שנועד לרתום את העובדים לשינוי במודל העבודה עם AI, מהלך שהיה יכול לעורר הרבה התנגדות. בחרתי לא להכריז על שינוי אלא להמליץ על דרך עבודה, והוספתי הרבה הומור, כדי להקליל את התהליך וגם להסביר מה עומד מאחורי הבחירה.",
+    text: "סרטון שנועד לרתום את העובדים לשינוי במודל העבודה עם AI, מהלך שהיה יכול לעורר הרבה התנגדות. בחרתי לא להכריז רק על השינוי הדרמטי, אלא להמליץ על דרך עבודה נכונה ויעילה בטוקנים, והוספתי הרבה הומור, כדי להקליל את התהליך וגם להסביר מה עומד מאחורי הבחירה.",
     images: ["assets/img/projects/appsflyer-1.webp", "assets/img/projects/appsflyer-2.webp", "assets/img/projects/appsflyer-3.webp", "assets/img/projects/appsflyer-4.webp", "assets/img/projects/appsflyer-5.webp", "assets/img/projects/appsflyer-6.webp", "assets/img/projects/appsflyer-7.webp"],
     url: ""
   },
