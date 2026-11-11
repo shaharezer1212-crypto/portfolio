@@ -179,6 +179,7 @@ img { display: block; max-width: 100%; }
   line-height: 1.38;
 }
 .note p { margin: 0 0 0.7em; }
+.nobr { white-space: nowrap; }
 .note p:last-child { margin-bottom: 0; }
 .note--paper { padding: 10px 12px 8px; background: var(--paper); }
 
