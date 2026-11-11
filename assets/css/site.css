@@ -446,7 +446,7 @@ main {
   z-index: 1;
   flex: none;
   margin: 0.02em 0 0;
-  color: var(--sky);
+  color: var(--yellow);
   font-weight: 700;
   font-size: min(31vw, 52svh);
   line-height: 1.02;
