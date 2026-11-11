@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>למה אי אפשר לשקוע בים המלח?</title>
+<link rel="stylesheet" href="film.css">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}}
+</script>
+</head>
+<body>
+<div id="stage">
+  <canvas id="c" width="1920" height="1080"></canvas>
+  <div id="vignette"></div>
+  <div id="flash"></div>
+  <svg id="lines" viewBox="0 0 1920 1080"></svg>
+  <div id="hud"></div>
+  <div id="black"></div>
+</div>
+<button id="play" type="button">▶ נגן</button>
+<audio id="score" src="audio/score.m4a" preload="auto"></audio>
+<script type="module" src="film.js"></script>
+</body>
+</html>
