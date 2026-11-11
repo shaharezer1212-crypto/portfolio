@@ -3,6 +3,8 @@ window.SITE = {
   linkedinUrl: "https://www.linkedin.com/in/shahar-ezer-1466a0232/",
   email: "Shaharezer1212@gmail.com",
   phone: "052-6641422",
+  whatsapp: "972526641422", // מספר בפורמט בינלאומי, בלי 0 ובלי מקפים
+  whatsappText: "היי שחר, הגעתי אליך דרך האתר שלך. אפשר לדבר?",
   intro: true // false מבטל את פתיח הלומדה
 };
 

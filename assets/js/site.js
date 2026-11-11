@@ -9,6 +9,7 @@
     var value = SITE[key];
     if (!value) { a.hidden = true; return; }
     if (key === "email") { a.href = "mailto:" + value; a.textContent = value; }
+    else if (key === "whatsapp") { a.href = "https://wa.me/" + value + (SITE.whatsappText ? "?text=" + encodeURIComponent(SITE.whatsappText) : ""); }
     else if (key === "phone") { a.href = "tel:" + value.replace(/[^0-9+]/g, ""); a.textContent = value; }
     else { a.href = value; }
   });

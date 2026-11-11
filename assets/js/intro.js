@@ -130,9 +130,25 @@
 
   function onKey(e) { if (e.key === "Escape") finish(); }
 
-  intro.querySelector("[data-skip]").addEventListener("click", finish);
+  intro.querySelectorAll("[data-skip]").forEach(function (b) { b.addEventListener("click", finish); });
   addEventListener("keydown", onKey);
 
+  // פופאפ קצר לפני שהלומדה מתחילה; השעונים רצים רק אחרי "מתחילים"
+  var pop = intro.querySelector("[data-pop]");
   show(0);
-  wait(toQuestion, 7000);
+  function start() {
+    if (!pop || pop.hidden) return;
+    pop.hidden = true;
+    intro.classList.remove("is-paused");
+    next.focus();
+    wait(toQuestion, 7000);
+  }
+  if (pop) {
+    intro.classList.add("is-paused");
+    var go = pop.querySelector("[data-start]");
+    go.addEventListener("click", start);
+    go.focus();
+  } else {
+    wait(toQuestion, 7000);
+  }
 })();

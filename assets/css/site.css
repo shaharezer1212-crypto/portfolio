@@ -503,6 +503,13 @@ main {
   transition: transform 0.4s var(--ease), background 0.2s;
 }
 .stamp a + a { font-size: clamp(1rem, 2.2vw, 2.2rem); transform: rotate(3deg); }
+.stamp a.stamp__wa {
+  background: #25d366;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.8vw, 1.7rem);
+  transform: rotate(-2deg);
+}
+.stamp a.stamp__wa::before { content: "💬 "; }
 .stamp a:hover,
 .stamp a:focus-visible { transform: rotate(0deg) scale(1.06); background: var(--sky); }
 .finale__links {
