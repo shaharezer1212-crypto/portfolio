@@ -15,27 +15,40 @@
 
   <div class="intro" id="intro" hidden role="dialog" aria-label="פתיח">
     <div class="player">
-      <div class="player__top"><b>הלומדה השנתית</b><span>חובה | משך משוער: 45 דקות</span></div>
+      <div class="player__top"><b>לומדת נגישות: רענון שנתי</b><span>חובה | משך משוער: 45 דקות</span></div>
       <ul class="player__menu">
-        <li>1. בחירת נושא</li>
-        <li>2. שאלה</li>
+        <li>1. ברוכים הבאים</li>
+        <li>2. מהי נגישות?</li>
         <li>3. משוב</li>
-        <li>4. נהלים, חלק א'</li>
-        <li>5. נהלים, חלק ב'</li>
-        <li>6. נהלים, חלק ג'</li>
+        <li>4. רקע חוקי</li>
+        <li>5. סוגי מוגבלויות</li>
+        <li>6. התאמות נגישות</li>
         <li>7. סיכום ביניים</li>
         <li>8. מבחן מסכם</li>
       </ul>
       <div class="player__stage">
         <section class="slide">
-          <h2>ברוכים הבאים ללומדה השנתית!</h2>
-          <p class="sub">בחרו נושא. (כולם חובה, אבל נחמד לבחור.)</p>
-          <div class="topics" data-topics></div>
+          <h2>ברוכים הבאים ללומדת הנגישות!</h2>
+          <p class="sub">נא לקרוא בעיון את כל המסכים. לא ניתן לדלג.</p>
+          <div class="slide__box">
+            <h3>מטרות הלמידה. בסיום הלומדה תוכלו:</h3>
+            <ul>
+              <li>להגדיר מהי נגישות.</li>
+              <li>לזהות את חשיבותה של הנגישות בארגון.</li>
+              <li>למנות את עקרונות הנגישות לפי הסדר.</li>
+            </ul>
+          </div>
+          <p class="hint">לחצו על "הבא" כדי להמשיך.</p>
         </section>
         <section class="slide">
-          <h2 data-q-title></h2>
+          <h2>מהי נגישות?</h2>
           <p class="sub">שאלה 1 מתוך 20. בחרו את התשובה הנכונה ביותר.</p>
-          <ul class="quiz" data-quiz></ul>
+          <ul class="quiz" data-quiz>
+            <li tabindex="0" role="button" data-right>היכולת של כל אדם להגיע למקום, להשתמש בשירות ולקבל מידע, באופן שוויוני ועצמאי</li>
+            <li tabindex="0" role="button">רמפה בכניסה לבניין</li>
+            <li tabindex="0" role="button">מסמך שנשלח פעם בשנה לכל העובדים</li>
+            <li tabindex="0" role="button">כל התשובות נכונות</li>
+          </ul>
         </section>
         <section class="slide">
           <div class="verdict" data-verdict></div>
@@ -47,7 +60,7 @@
         <button class="player__btn" type="button" disabled>הקודם</button>
         <span data-counter>שקף 1 מתוך 24</span>
         <div class="player__track"><i></i></div>
-        <button class="player__btn" type="button" disabled>הבא</button>
+        <button class="player__btn player__btn--go" type="button" data-next>הבא</button>
       </div>
     </div>
     <div class="intro__noise" aria-hidden="true"></div>
