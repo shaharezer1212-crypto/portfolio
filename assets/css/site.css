@@ -141,7 +141,8 @@ img { display: block; max-width: 100%; }
   word-spacing: 0.08em;
   pointer-events: none;
 }
-.display .row { display: block; overflow: hidden; padding-top: 0.2em; margin-top: -0.2em; }
+/* מרווח קטן מכל צד, כדי שהאנימציה לא תחתוך אותיות שבולטות מעט מהקופסה */
+.display .row { display: block; overflow: hidden; padding: 0.2em 0.12em 0.04em; margin: -0.2em -0.12em -0.04em; }
 .display .row > span {
   display: block;
   scale: 1 var(--tall);
