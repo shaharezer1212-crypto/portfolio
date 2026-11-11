@@ -24,7 +24,7 @@
   /* כותרת בשורה אחת: גדולה, אבל לא גדולה מהתמונות ומהטקסט שסביבה */
   --display: clamp(2.6rem, 7.4vw, 8.6rem);
   /* הכותרות נמתחות לגובה כדי לקבל מראה צפוף וגבוה */
-  --tall: 1.18;
+  --tall: 1.06;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -136,8 +136,9 @@ img { display: block; max-width: 100%; }
   margin: 0;
   font-weight: 700;
   font-size: var(--display);
-  line-height: calc(0.92 * var(--tall));
-  letter-spacing: -0.045em;
+  line-height: calc(1.02 * var(--tall));
+  letter-spacing: -0.005em;
+  word-spacing: 0.08em;
   pointer-events: none;
 }
 .display .row { display: block; overflow: hidden; padding-top: 0.2em; margin-top: -0.2em; }
@@ -147,8 +148,8 @@ img { display: block; max-width: 100%; }
   transform-origin: 50% 100%;
 }
 .hl {
-  padding: 0 0.12em;
-  background: linear-gradient(transparent 22%, var(--yellow) 22%, var(--yellow) 88%, transparent 88%);
+  padding: 0 0.16em;
+  background: linear-gradient(transparent 20%, var(--sky) 20%, var(--sky) 90%, transparent 90%);
   color: inherit;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -158,7 +159,7 @@ img { display: block; max-width: 100%; }
 .display .row--in2 { padding-inline-start: 31vw; }
 .display .row--in3 { padding-inline-start: 46vw; }
 /* שורות משנה בכותרת: קטנות יותר, כדי שמשפט ארוך ייכנס ברוחב */
-.display .display__sub { font-size: 0.5em; margin-top: 0.1em; }
+.display .display__sub { font-size: 0.46em; margin-top: 0.25em; letter-spacing: 0.01em; }
 
 .js .display .row > span {
   transform: translateY(105%);
