@@ -385,7 +385,7 @@ main {
   text-align: start;
 }
 .cols li { position: relative; padding-inline-start: 0.9em; }
-.cols li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.5em; width: 0.42em; height: 0.42em; border-radius: 50%; background: var(--yellow); }
+.cols li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.5em; width: 0.42em; height: 0.42em; border-radius: 50%; background: var(--sky); }
 
 .timeline { margin: clamp(28px, 4vw, 60px) 0 0; padding: 0; list-style: none; }
 .timeline li {
@@ -415,7 +415,7 @@ main {
   width: 0.5em;
   height: 0.5em;
   border-radius: 50%;
-  background: var(--yellow);
+  background: var(--sky);
 }
 .band__title {
   margin: clamp(40px, 6vw, 90px) 0 0;
@@ -446,7 +446,7 @@ main {
   z-index: 1;
   flex: none;
   margin: 0.02em 0 0;
-  color: var(--yellow);
+  color: var(--sky);
   font-weight: 700;
   font-size: min(31vw, 52svh);
   line-height: 1.02;
@@ -504,7 +504,7 @@ main {
 }
 .stamp a + a { font-size: clamp(1rem, 2.2vw, 2.2rem); transform: rotate(3deg); }
 .stamp a:hover,
-.stamp a:focus-visible { transform: rotate(0deg) scale(1.06); background: var(--yellow); }
+.stamp a:focus-visible { transform: rotate(0deg) scale(1.06); background: var(--sky); }
 .finale__links {
   position: absolute;
   inset: auto var(--gutter) 14px;
