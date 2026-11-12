@@ -417,23 +417,14 @@ function setNanoCam(t) {
 const hud = document.getElementById('hud'), svg = document.getElementById('lines');
 const L = s => `<span class="ltr">${s}</span>`;
 const CAPS = [
-  { a: 0.9, b: 5.7, top: 44, cls: 'title', html: 'למה אי אפשר לשקוע<br><em>בים המלח?</em>' },
-  { a: 6.4, b: 9.3, top: 880, cls: 'line', html: 'ליטר של גוף אדם שוקל <b>בערך קילו</b>' },
-  { a: 9.3, b: 12.2, top: 880, cls: 'line', html: `ליטר של המים האלה שוקל <b>${L('1.24')} ק״ג</b>` },
-  { a: 13.5, b: 16.4, top: 250, cls: 'line', html: 'מה יש בתוך המים האלה?' },
-  { a: 20.4, b: 23.5, top: 800, cls: 'big', html: 'ננומטר אחד' },
-  { a: 20.9, b: 23.5, top: 960, cls: 'sub', html: 'מיליונית המילימטר. כאן כבר רואים מולקולות.' },
-  { a: 23.9, b: 27.0, top: 880, cls: 'line', html: 'בין מולקולות המים: <b>יוני מלח</b>' },
-  { a: 27.2, b: 30.6, top: 850, cls: 'line', html: 'יון אחד על כל <b>4</b> מולקולות מים' },
-  { a: 27.9, b: 30.6, top: 950, cls: 'sub', html: 'באוקיינוס: יון אחד על כל 50' },
-  { a: 32.8, b: 35.5, top: 900, cls: 'line', html: '<b>שש</b> מולקולות מים נצמדות לכל יון מגנזיום' },
-  { a: 35.6, b: 38.1, top: 850, cls: 'line', html: 'יותר מסה באותו נפח' },
-  { a: 36.1, b: 38.1, top: 950, cls: 'sub', html: 'ולכן המים האלה צפופים ב־24% ממים רגילים' },
-  { a: 45.5, b: 49.2, top: 44, cls: 'title', html: 'לא אתם קלים.<br><em>המים כבדים.</em>' },
-  { a: 46.3, b: 49.2, top: 318, cls: 'kicker', html: 'נוזל צפוף יותר דוחף חזק יותר כלפי מעלה' },
+  { a: 0.9, b: 5.7, top: 70, cls: 'title', html: 'למה אי אפשר לשקוע<br>בים המלח?' },
+  { a: 8.0, b: 12.2, top: 900, cls: 'line', html: `ליטר מהמים האלה שוקל ${L('1.24')} ק״ג, לא קילו` },
+  { a: 20.4, b: 23.5, top: 880, cls: 'big', html: 'ננומטר אחד' },
+  { a: 26.0, b: 30.6, top: 900, cls: 'line', html: 'יון מלח אחד על כל 4 מולקולות מים' },
+  { a: 32.8, b: 35.6, top: 900, cls: 'line', html: 'שש מולקולות מים נצמדות לכל יון מגנזיום' },
+  { a: 35.9, b: 38.1, top: 900, cls: 'line', html: 'יותר מסה באותו נפח' },
+  { a: 45.5, b: 49.2, top: 70, cls: 'title', html: 'לא אתם קלים.<br>המים כבדים.' },
 ];
-// the kicker under the opening title
-CAPS.splice(1, 0, { a: 1.7, b: 5.7, top: 318, cls: 'kicker', html: 'כ־430 מטר מתחת לפני הים · המקום הנמוך ביותר ביבשה' });
 for (const c of CAPS) { const el = document.createElement('div'); el.className = 'cap ' + c.cls; el.style.top = c.top + 'px'; el.innerHTML = c.html; hud.appendChild(el); c.el = el; }
 
 const ruler = document.createElement('div'); ruler.id = 'ruler';
@@ -445,14 +436,12 @@ const STEPS = [['1 ס״מ', 'רוחב ציפורן'], ['1 מ״מ', 'גרגר ח�
 
 const legend = document.createElement('div'); legend.id = 'legend';
 const css = c => `rgb(${c.map(x => Math.round(Math.min(1, x) * 255)).join(',')})`;
-legend.innerHTML = [
-  ['O', 'מולקולת מים', 'H<sub>2</sub>O'], ['Cl', 'כלור', 'Cl<sup>−</sup>'], ['Mg', 'מגנזיום', 'Mg<sup>2+</sup>'],
-  ['Na', 'נתרן', 'Na<sup>+</sup>'], ['Ca', 'סידן', 'Ca<sup>2+</sup>'], ['K', 'אשלגן', 'K<sup>+</sup>'],
-].map(([k, name, f]) => `<div><i style="background:${css(SPEC[k].col)}"></i>${name}<span class="ltr">${f}</span></div>`).join('');
+legend.innerHTML = [['O', 'מים'], ['Cl', 'כלור'], ['Mg', 'מגנזיום'], ['Na', 'נתרן']]
+  .map(([k, name]) => `<div><i style="background:${css(SPEC[k].col)}"></i>${name}</div>`).join('');
 hud.appendChild(legend);
 
 const mkTag = html => { const el = document.createElement('div'); el.className = 'tag'; el.innerHTML = html; hud.appendChild(el); return el; };
-const tagMg = mkTag(`יון מגנזיום ${L('Mg<sup>2+</sup>')}`);
+const tagMg = mkTag('יון מגנזיום');
 const tagDist = mkTag(`${L('0.21')} ננומטר<small>ממרכז היון למרכז החמצן</small>`);
 const mkLine = () => { const l = document.createElementNS('http://www.w3.org/2000/svg', 'line'); svg.appendChild(l); return l; };
 const lnMeasure = mkLine(), lnMg = mkLine();
@@ -474,19 +463,19 @@ function updateHud(t, inMacro, tau) {
   if (rOp > 0) {
     const i = Math.min(7, Math.floor(d)), f = d - i;
     rBar.style.width = (40 * Math.pow(10, f)).toFixed(1) + 'px';
-    rLen.textContent = STEPS[i][0]; rRef.textContent = STEPS[i][1];
-    rMag.textContent = i ? 'הגדלה פי ' + Math.pow(10, i).toLocaleString('en-US') : '\u00a0';
+    rLen.textContent = STEPS[i][0]; rRef.textContent = '';
+    rMag.textContent = '';
   }
   legend.style.opacity = (sm(23.6, 24.3, t) * (1 - sm(37.6, 38.2, t))).toFixed(3);
   // labels pinned to the hero ion
   const tOp = sm(33.2, 33.9, t) * (1 - sm(37.5, 38.0, t));
-  tagMg.style.opacity = tagDist.style.opacity = tOp.toFixed(3);
+  tagMg.style.opacity = tOp.toFixed(3); tagDist.style.opacity = 0;
   if (tOp > 0) {
     const [mx, my] = proj(ORIGIN, nanoCam), [ox, oy] = proj(SHELL_O, nanoCam);
-    setLine(lnMeasure, mx, my, ox, oy, tOp);
+    setLine(lnMeasure, mx, my, ox, oy, 0);
     const ax = mx - 330, ay = my - 250;
-    setLine(lnMg, mx - 16, my - 12, ax + 150, ay + 62, tOp * 0.9);
-    tagMg.style.left = (ax - 170) + 'px'; tagMg.style.top = ay + 'px';
+    setLine(lnMg, mx - 16, my - 12, ax + 60, ay + 58, tOp * 0.9);
+    tagMg.style.left = (ax - 150) + 'px'; tagMg.style.top = ay + 'px';
     tagDist.style.left = (Math.max(mx, ox) + 60) + 'px'; tagDist.style.top = ((my + oy) / 2 - 10) + 'px';
   } else { lnMeasure.style.opacity = 0; lnMg.style.opacity = 0; }
 
@@ -526,7 +515,7 @@ function frame(t) {
 
 // ---------------------------------------------------------------- run
 window.__frame = frame;
-window.__ready = document.fonts.ready.then(() => Promise.all(['400', '700', '900'].map(w => document.fonts.load(`${w} 40px Heebo`, 'אב12')))).then(() => { frame(0); return true; });
+window.__ready = document.fonts.ready.then(() => Promise.all(['400', '500', '700'].map(w => document.fonts.load(`${w} 40px Rubik`, 'אב12')))).then(() => { frame(0); return true; });
 
 if (RENDER) {
   document.body.classList.add('render');
